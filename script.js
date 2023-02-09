@@ -25,9 +25,10 @@ const divide = function(num1, num2) {
 // ============================================================================
 // Show clicked numbers on screen
 // ============================================================================
+
+// Writes clicked number onto the screen
 const displayValueElement = document.querySelector("#displayValue");
 const numButtons = document.querySelectorAll(".num");
-
 numButtons.forEach((btn) => {
     btn.addEventListener('click', () => {
         if (displayValueElement.textContent == '0') {
@@ -36,4 +37,10 @@ numButtons.forEach((btn) => {
             displayValueElement.textContent = displayValueElement.textContent.concat(btn.textContent);
         }
     });
+});
+
+// Clears the screen
+const clearBtn = document.querySelector("#clear");
+clearBtn.addEventListener('click', () => {
+    displayValueElement.textContent = "0";
 });
