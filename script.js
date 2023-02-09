@@ -44,3 +44,9 @@ const clearBtn = document.querySelector("#clear");
 clearBtn.addEventListener('click', () => {
     displayValueElement.textContent = "0";
 });
+
+// Deletes last number written
+const delBtn = document.querySelector("#delete");
+delBtn.addEventListener('click', () => {
+    displayValueElement.textContent = displayValueElement.textContent.slice(0, -1);
+});
