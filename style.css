@@ -2,30 +2,49 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    margin: 0;
 }
 
 .calculator {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    max-width: 400px;
-    height: 600px;
-    margin-top: 10vmin;
-    margin-bottom: 10vmin;
     background-color: black;
+    align-items: center;
+    justify-content: center;
+    width: 300px;
+    height: 500px;
+    margin: 50px;
+    border-radius: 10px;
 }
 
 .screen {
-    flex: 1;
+    background-color: grey;
+    text-align: right;
+    padding: 25px;
+    margin-inline: 10px;
+    margin-block: 10px;
+    border-radius: 10px;
+    margin-bottom: 40px;
 }
 
 .buttons {
-    flex: 1;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    margin-inline: 10px;
+    margin-block: 10px;
+    justify-content: center;
 }
 
 .btnrow {
+    width: 100%;
+    margin: 2px;
     flex: 1;
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+button {
+    margin: 2px;
+    flex: 1;
+    padding: 20px;
 }
