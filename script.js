@@ -55,7 +55,11 @@ clearBtn.addEventListener('click', () => {
 // Deletes last number written
 const delBtn = document.querySelector("#delete");
 delBtn.addEventListener('click', () => {
-    displayValueElement.textContent = displayValueElement.textContent.slice(0, -1);
+    if (displayValueElement.textContent.length != 1) {
+        displayValueElement.textContent = displayValueElement.textContent.slice(0, -1);
+    } else {
+        displayValueElement.textContent = '0';
+    }
 });
 
 // Operation button functionality
