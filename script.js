@@ -68,7 +68,7 @@ delBtn.addEventListener('click', () => {
 // Operation button functionality
 const savePrevNum = function() {
     prevNum = Number(displayValueElement.textContent);
-    clearScreen();
+    displayValueElement.textContent = '0';
 };
 const operationBtns = document.querySelectorAll(".operation");
 operationBtns.forEach((btn) => {
@@ -83,6 +83,7 @@ operationBtns.forEach((btn) => {
 const equalsBtn = document.querySelector("#equals");
 equalsBtn.addEventListener('click', () => {
     curNum = Number(displayValueElement.textContent);
+    console.log(`operation=${operation} , prevnum = ${prevNum}, curnum = ${curNum}`);
     if (operation == 'add') {
         displayValueElement.textContent = add(prevNum, curNum).toString();
     } else if (operation == 'subtract') {
