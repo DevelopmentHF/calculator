@@ -46,6 +46,9 @@ numButtons.forEach((btn) => {
 // Clears the screen
 const clearScreen = function() {
     displayValueElement.textContent = '0';
+    prevNum = 0;
+    curNum = 0;
+    operation = '';
 };
 const clearBtn = document.querySelector("#clear");
 clearBtn.addEventListener('click', () => {
