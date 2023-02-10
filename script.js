@@ -23,8 +23,12 @@ const divide = function(num1, num2) {
 }
 
 // ============================================================================
-// Show clicked numbers on screen
+// Button functionality
 // ============================================================================
+
+let prevNum = 0;
+let curNum = 0;
+let operation = '';
 
 // Writes clicked number onto the screen
 const displayValueElement = document.querySelector("#displayValue");
@@ -40,13 +44,45 @@ numButtons.forEach((btn) => {
 });
 
 // Clears the screen
+const clearScreen = function() {
+    displayValueElement.textContent = '0';
+};
 const clearBtn = document.querySelector("#clear");
 clearBtn.addEventListener('click', () => {
-    displayValueElement.textContent = "0";
+    clearScreen();
 });
 
 // Deletes last number written
 const delBtn = document.querySelector("#delete");
 delBtn.addEventListener('click', () => {
     displayValueElement.textContent = displayValueElement.textContent.slice(0, -1);
+});
+
+// Operation button functionality
+const savePrevNum = function() {
+    prevNum = Number(displayValueElement.textContent);
+    clearScreen();
+};
+const operationBtns = document.querySelectorAll(".operation");
+operationBtns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+        savePrevNum();
+        operation = btn.id;
+        console.log(operation);
+    });
+});
+
+// Equals button
+const equalsBtn = document.querySelector("#equals");
+equalsBtn.addEventListener('click', () => {
+    curNum = Number(displayValueElement.textContent);
+    if (operation == 'add') {
+        displayValueElement.textContent = add(prevNum, curNum).toString();
+    } else if (operation == 'subtract') {
+        displayValueElement.textContent = subtract(prevNum, curNum).toString();
+    } else if (operation == 'multiply') {
+        displayValueElement.textContent = multiply(prevNum, curNum).toString();
+    } else if (operation == 'divide') {
+        displayValueElement.textContent = divide(prevNum, curNum).toString();
+    }
 });
